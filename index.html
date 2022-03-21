@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function Chuot(name, weight, speed) {
+        this.name = name;
+        this.weight = weight;
+        this.speed = speed;
+        this.status = "alive";
+        this.Keu = function () {
+            return alert(this.name + " chit chit!");
+        }
+    }
+
+    function Meo(name, weight, speed) {
+        this.name = name;
+        this.weight = weight;
+        this.speed = speed;
+        this.Keu = function () {
+            return alert(this.name + " meo meo! ");
+        }
+        this.batChuot= function (chuot) {
+            if (this.speed > chuot.speed) {
+                alert(this.name + " bắt " + chuot.name);
+            } else {
+                alert(this.name + " không bắt " + chuot.name)
+            }
+
+        }
+        this.anChuot = function (chuot) {
+            if (chuot.status === "alive"){
+                this.weight += chuot.weight;
+                alert(this.name + " ăn " + chuot.name);
+            }
+        }
+    }
+    let meo = new Meo("Tom",200,60);
+    meo.Keu();
+    let chuot = new Chuot("Jerry",100,50);
+    chuot.Keu();
+    meo.batChuot(chuot);
+    meo.anChuot(chuot);
+</script>
+</body>
+</html>
